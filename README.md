@@ -1,2 +1,2 @@
-# mitGen1.github.io
+# sevenMag
 mag
