@@ -1,2 +1,2 @@
-# myShop.github.io
+# mitGen1.github.io
 mag
