@@ -1,5 +1,4 @@
 window.onload = function(){
-  console.log('hi')
   let numberMenu = 9; //Количество li головного меню
   let numberCategories = 4; //Количевство li в категории под именем Categories
 
@@ -182,7 +181,7 @@ xhr.onload = function(){
   setTimeout(function(){
     blockEl(quontBlocks, newsCont, 'mainAccord');
     increaseFoto(newsCont.length, newsCont, true);
-  },1000);
+  },500);
 })();
 
         //Увеличение картинки при наведении в блоках
@@ -289,7 +288,7 @@ for(var i=0; i<3; i++){
   blockEl(post.length, post, 'blockAvesome');
   rate(post[0], 0, 'Avesome', 'val1');
   rate(post[3], 1, 'Amazing', 'val2');
-},900);
+},500);
 
 
 		//Редактирование блока под названием NEWS IS Picture
@@ -355,7 +354,7 @@ divF[3].children[0].appendChild(createElem('img', 'imgBig', 'src', 'images/conte
           var fotoOsn = document.getElementsByClassName('fotoOsn');
           fotoOsn[k].appendChild(createElem('img', null, 'src', `${masa[k].photo}`));
     };
-  },800);
+  },500);
  })();
 })();
 
@@ -369,7 +368,7 @@ divF[3].children[0].appendChild(createElem('img', 'imgBig', 'src', 'images/conte
 		//левая чатсь блока
       blockEl(1, divF[7].children, 'entertainment');
       rate(entMent[0], 2, 'Awesome', 'val3');
-    },1000);
+    },500);
 
 		//Правая часть блока Entertainment
     entMent[1].appendChild(createElem('div', 'newsEnt', null, null, null, 'click', newsEnt));
@@ -384,7 +383,7 @@ divF[3].children[0].appendChild(createElem('img', 'imgBig', 'src', 'images/conte
       console.log(event.target)
     }
 
-console.log('dfdf')
+console.log('stretre')
   })();//первая часть
 })();//Контейнер основного контента
 
