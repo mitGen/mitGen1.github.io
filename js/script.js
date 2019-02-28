@@ -176,12 +176,11 @@ xhr.onload = function(){
   for(var j=0; j<quontBlocks; j++){
     newsBanCont.appendChild(createElem('div', 'newsBanChild'));
   };
-
   //гавный блок с прокруткой
   setTimeout(function(){
     blockEl(quontBlocks, newsCont, 'mainAccord');
     increaseFoto(newsCont.length, newsCont, true);
-  },500);
+  },700);
 })();
 
         //Увеличение картинки при наведении в блоках
@@ -288,7 +287,7 @@ for(var i=0; i<3; i++){
   blockEl(post.length, post, 'blockAvesome');
   rate(post[0], 0, 'Avesome', 'val1');
   rate(post[3], 1, 'Amazing', 'val2');
-},500);
+},700);
 
 
 		//Редактирование блока под названием NEWS IS Picture
@@ -319,7 +318,7 @@ divF[3].children[0].appendChild(createElem('img', 'imgBig', 'src', 'images/conte
     setTimeout(function(){
         divF[3].children[0].children[0].setAttribute('src', event.target.getAttribute('src'));
         divF[3].children[0].children[0].style.opacity='1';
-      },500)
+      },800)
       }
 })();
 
@@ -343,18 +342,18 @@ divF[3].children[0].appendChild(createElem('img', 'imgBig', 'src', 'images/conte
       };
     };
 
-    for(var k=0; k<9; k++){
+    for (var k = 0; k < 9; k++) {
       divF[5].children[0].appendChild(createElem('div', 'osnBlock'));
       let contents = divF[5].children[0].children[k];
-          contents.appendChild(createElem('div','fotoOsn'));
-          contents.appendChild(createElem('span','spanOsn')).innerHTML = masa[k].content;
-          contents.appendChild(createElem('div','kalendOsn'));
-          contents.children[2].appendChild(createElem('img', null, 'src', 'images/banner/icon2.png'));
-          contents.children[2].appendChild(createElem('span')).innerHTML=masa[k].date;
-          var fotoOsn = document.getElementsByClassName('fotoOsn');
-          fotoOsn[k].appendChild(createElem('img', null, 'src', `${masa[k].photo}`));
+      contents.appendChild(createElem('div', 'fotoOsn'));
+      contents.appendChild(createElem('span', 'spanOsn')).innerHTML = masa[k].content;
+      contents.appendChild(createElem('div', 'kalendOsn'));
+      contents.children[2].appendChild(createElem('img', null, 'src', 'images/banner/icon2.png'));
+      contents.children[2].appendChild(createElem('span')).innerHTML = masa[k].date;
+      var fotoOsn = document.getElementsByClassName('fotoOsn');
+      fotoOsn[k].appendChild(createElem('img', null, 'src', `${masa[k].photo}`));
     };
-  },500);
+  },900);
  })();
 })();
 
@@ -364,26 +363,32 @@ divF[3].children[0].appendChild(createElem('img', 'imgBig', 'src', 'images/conte
     divF[7].appendChild(createElem('div', 'heightEnter'));
     divF[7].appendChild(createElem('div', 'blockEnterTwo'));
     let entMent =divF[7].children;
+    increaseFoto(1, entMent, false) //плавный переход для span
     setTimeout(function(){
 		//левая чатсь блока
       blockEl(1, divF[7].children, 'entertainment');
       rate(entMent[0], 2, 'Awesome', 'val3');
-    },500);
+    },1000);
 
 		//Правая часть блока Entertainment
     entMent[1].appendChild(createElem('div', 'newsEnt', null, null, null, 'click', newsEnt));
     let news = entMent[1].children[0];
     news.appendChild(createElem('img', 'newsImage', 'src', 'images/content/fon.jpg'))
-    // entMent[1].appendChild(createElem('div', 'newsEnt', null, null, null, 'click', newsEnt));
-    // let news1 = entMent[1].children[1];
-    // news1.appendChild(createElem('img', 'newsImage', 'src', 'images/content/fon.jpg'))
-    // console.log('sjhgd')
-
+    for (var j = 0; j < 4; j++) {
+      news.appendChild(createElem('img', 'icon'));
+    };
+    news.children[1].setAttribute('src', 'images/banner/icon3.png');
+    news.children[2].setAttribute('src', 'images/banner/icon2.png');
+    news.children[3].setAttribute('src', 'images/banner/icon1.png');
     function newsEnt(){
       console.log(event.target)
     }
 
-console.log('stretre')
+
+
+
+
+
   })();//первая часть
 })();//Контейнер основного контента
 

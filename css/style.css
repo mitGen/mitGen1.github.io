@@ -560,7 +560,7 @@ overflow: hidden;
   margin-top:-319px;
 }
 .newsEnt{
-  width:100%;
+  width:90%;
   height:70px;
   border-bottom:1px solid #f1f1f1;
   background-color: red;
@@ -569,5 +569,7 @@ overflow: hidden;
 img.newsImage{
   width:63px;
   height:63px;
-  vertical-align: 50%;
+}
+.newsEnt:first-child{
+  margin-left:20px;
 }
