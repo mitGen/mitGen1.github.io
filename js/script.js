@@ -1,4 +1,5 @@
 window.onload = function(){
+  console.log('hi')
   let numberMenu = 9; //Количество li головного меню
   let numberCategories = 4; //Количевство li в категории под именем Categories
 
