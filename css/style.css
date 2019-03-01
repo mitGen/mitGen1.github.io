@@ -553,7 +553,6 @@ overflow: hidden;
 .blockEnterTwo{
   width:260px;
   min-height:320px;
-  background-color: green;
   margin-left: 20px;
 }
 .heightEnter div.valNone{
@@ -561,15 +560,34 @@ overflow: hidden;
 }
 .newsEnt{
   width:90%;
-  height:70px;
+  min-height:70px;
   border-bottom:1px solid #f1f1f1;
-  background-color: red;
   margin-bottom:10px;
 }
-img.newsImage{
+.newsImage{
   width:63px;
   height:63px;
 }
-.newsEnt:first-child{
-  margin-left:20px;
+.icon{
+  margin-left:10px;
+  display: inline-block;
+  opacity: 0.7;
+  transition: all 0.5s linear;
+}
+.icon:hover{
+  transform:scale(1.3, 1.3);
+  opacity:1;
+}
+div.newsEnt img:nth-child(3){
+  margin-left:81px;
+}
+span.infoSpanBlock{
+  display: block;
+  font-family: robotoRegular;
+  font-size: 14px;
+  margin-top: -65px;
+  width: 145px;
+  margin-left: 81px;
+  min-height:43px;
+  line-height:20px;
 }

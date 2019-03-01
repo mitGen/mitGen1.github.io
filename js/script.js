@@ -246,6 +246,34 @@ function corusel(slider, quontStrip, wayOne, wayTwo, newsBan, quontPixel){
   corusel(coruselImages, 6, 'corusel1.png', 'corusel2.png', newsB, 1260);
 })();
 
+//Функция создания Entertainment small block
+    function addSmallBlock(where, quontBlock, handler, id) {
+      let mas = [].concat(master);
+      for (var j = 0; j < mas.length; j++) {
+        if (mas[j].id !== id) {
+          mas.splice(j, 1);
+          j--;
+        };
+      };
+      for (var i = 0; i < quontBlock; i++) {
+        where.appendChild(createElem('div', 'newsEnt', null, null, null, 'click', handler));
+        where.children[i].appendChild(createElem('img', 'newsImage', 'src', mas[i]['photo']));
+        where.children[i].appendChild(createElem('span', 'infoSpanBlock'));
+        let span = document.getElementsByClassName('infoSpanBlock')[i];
+        span.innerHTML = mas[i]['content'];
+        for (var j = 0; j < 4; j++) {
+          where.children[i].appendChild(createElem('img', 'icon'));
+        };
+        where.children[i].children[2].setAttribute('src', 'images/banner/icon3.png');
+        where.children[i].children[3].setAttribute('src', 'images/banner/icon2.png');
+        where.children[i].children[4].setAttribute('src', 'images/banner/icon1.png');
+        if (i == quontBlock - 1) {
+          where.children[i].style.borderBottom = '0px';
+        }
+      }
+
+    }
+
 		//создаем контейнер для основного контента
 (function cont(){
 document.body.getElementsByClassName('container')[0].appendChild(createElem('div', 'content'));
@@ -368,20 +396,14 @@ divF[3].children[0].appendChild(createElem('img', 'imgBig', 'src', 'images/conte
 		//левая чатсь блока
       blockEl(1, divF[7].children, 'entertainment');
       rate(entMent[0], 2, 'Awesome', 'val3');
+      addSmallBlock(entMent[1], 4, newsEnt, "enterSmallBlock"); 	//Правая часть блока Entertainment
     },1000);
 
-		//Правая часть блока Entertainment
-    entMent[1].appendChild(createElem('div', 'newsEnt', null, null, null, 'click', newsEnt));
-    let news = entMent[1].children[0];
-    news.appendChild(createElem('img', 'newsImage', 'src', 'images/content/fon.jpg'))
-    for (var j = 0; j < 4; j++) {
-      news.appendChild(createElem('img', 'icon'));
-    };
-    news.children[1].setAttribute('src', 'images/banner/icon3.png');
-    news.children[2].setAttribute('src', 'images/banner/icon2.png');
-    news.children[3].setAttribute('src', 'images/banner/icon1.png');
-    function newsEnt(){
-      console.log(event.target)
+
+    function newsEnt(e){
+      let content = document.getElementsByClassName('heightEnter')[0];
+      content.children[0].setAttribute('src', this.children[0].getAttribute('src'));
+      content.children[1].children[0].innerHTML=this.children[1].innerHTML
     }
 
 
@@ -390,10 +412,8 @@ divF[3].children[0].appendChild(createElem('img', 'imgBig', 'src', 'images/conte
 
 
   })();//первая часть
+
 })();//Контейнер основного контента
-
-
-
 
 
 
