@@ -247,32 +247,31 @@ function corusel(slider, quontStrip, wayOne, wayTwo, newsBan, quontPixel){
 })();
 
 //Функция создания Entertainment small block
-    function addSmallBlock(where, quontBlock, handler, id) {
-      let mas = [].concat(master);
-      for (var j = 0; j < mas.length; j++) {
-        if (mas[j].id !== id) {
-          mas.splice(j, 1);
-          j--;
-        };
+    function addSmallBlock(where, handler, id) {
+    let mas = [].concat(master);
+    for (var j = 0; j < mas.length; j++) {
+      if (mas[j].id !== id) {
+        mas.splice(j, 1);
+        j--;
       };
-      for (var i = 0; i < quontBlock; i++) {
-        where.appendChild(createElem('div', 'newsEnt', null, null, null, 'click', handler));
-        where.children[i].appendChild(createElem('img', 'newsImage', 'src', mas[i]['photo']));
-        where.children[i].appendChild(createElem('span', 'infoSpanBlock'));
-        let span = document.getElementsByClassName('infoSpanBlock')[i];
-        span.innerHTML = mas[i]['content'];
-        for (var j = 0; j < 4; j++) {
-          where.children[i].appendChild(createElem('img', 'icon'));
-        };
-        where.children[i].children[2].setAttribute('src', 'images/banner/icon3.png');
-        where.children[i].children[3].setAttribute('src', 'images/banner/icon2.png');
-        where.children[i].children[4].setAttribute('src', 'images/banner/icon1.png');
-        if (i == quontBlock - 1) {
-          where.children[i].style.borderBottom = '0px';
-        }
+    };
+    for (var i = 0; i < mas.length; i++) {
+      where.appendChild(createElem('div', 'newsEnt', null, null, null, 'click', handler));
+      where.children[i].appendChild(createElem('img', 'newsImage', 'src', mas[i]['photo']));
+      where.children[i].appendChild(createElem('span', 'infoSpanBlock'));
+      let span = document.getElementsByClassName('infoSpanBlock')[i];
+      span.innerHTML = mas[i]['content'];
+      for (var j = 0; j < 4; j++) {
+        where.children[i].appendChild(createElem('img', 'icon'));
+      };
+      where.children[i].children[2].setAttribute('src', 'images/banner/icon3.png');
+      where.children[i].children[3].setAttribute('src', 'images/banner/icon2.png');
+      where.children[i].children[4].setAttribute('src', 'images/banner/icon1.png');
+      if (i == mas.length - 1) {
+        where.children[i].style.borderBottom = '0px';
       }
-
     }
+  }
 
 		//создаем контейнер для основного контента
 (function cont(){
@@ -341,13 +340,13 @@ img[7].children[0].setAttribute('src', 'images/content/8.jpg');
 img[8].children[0].setAttribute('src', 'images/content/9.jpg');
 
 divF[3].children[0].appendChild(createElem('img', 'imgBig', 'src', 'images/content/1.jpg'));
-  function imgWork(event){
-    divF[3].children[0].children[0].style.opacity='0';
-    setTimeout(function(){
-        divF[3].children[0].children[0].setAttribute('src', event.target.getAttribute('src'));
-        divF[3].children[0].children[0].style.opacity='1';
-      },800)
-      }
+function imgWork(event) {
+  divF[3].children[0].children[0].style.opacity = '0';
+  setTimeout(function() {
+    divF[3].children[0].children[0].setAttribute('src', event.target.getAttribute('src'));
+    divF[3].children[0].children[0].style.opacity = '1';
+  }, 800)
+}
 })();
 
 		//Редактирование блока под названием Carousel posts
@@ -361,15 +360,14 @@ divF[3].children[0].appendChild(createElem('img', 'imgBig', 'src', 'images/conte
   corusel(slide, 3, 'corusel3.png', 'corusel4.png', divF[5].children[0], 587);
 
   // заполнение контентом блок corusel posts
-  setTimeout(function(){
+  setTimeout(function() {
     let masa = [].concat(master);
-    for(let j=0; j<masa.length; j++){
-      if(masa[j].id !='coruselPosts'){
+    for (let j = 0; j < masa.length; j++) {
+      if (masa[j].id != 'coruselPosts') {
         masa.splice(j, 1);
         j--;
       };
     };
-
     for (var k = 0; k < 9; k++) {
       divF[5].children[0].appendChild(createElem('div', 'osnBlock'));
       let contents = divF[5].children[0].children[k];
@@ -381,8 +379,8 @@ divF[3].children[0].appendChild(createElem('img', 'imgBig', 'src', 'images/conte
       var fotoOsn = document.getElementsByClassName('fotoOsn');
       fotoOsn[k].appendChild(createElem('img', null, 'src', `${masa[k].photo}`));
     };
-  },900);
- })();
+  }, 900);
+})();
 })();
 
 		//Работа с блоком Entertainment
@@ -396,24 +394,60 @@ divF[3].children[0].appendChild(createElem('img', 'imgBig', 'src', 'images/conte
 		//левая чатсь блока
       blockEl(1, divF[7].children, 'entertainment');
       rate(entMent[0], 2, 'Awesome', 'val3');
-      addSmallBlock(entMent[1], 4, newsEnt, "enterSmallBlock"); 	//Правая часть блока Entertainment
+      addSmallBlock(entMent[1], newsEnt, "enterSmallBlock"); 	//Правая часть блока Entertainment
     },1000);
 
-
-    function newsEnt(e){
+    //функция выбора small block Entertainment
+    function newsEnt(e) {
       let content = document.getElementsByClassName('heightEnter')[0];
-      content.children[0].setAttribute('src', this.children[0].getAttribute('src'));
-      content.children[1].children[0].innerHTML=this.children[1].innerHTML
+      let con = content.children[0];
+      con.style.width = '0%';
+      con.style.opacity = '0';
+      content.children[1].children[0].style.opacity = '0';
+      content.children[1].children[0].style.marginLeft = '-200px';
+      let context = this;
+      setTimeout(function() {
+        con.setAttribute('src', context.children[0].getAttribute('src'));
+        con.style.transition = 'none';
+        con.style.width = '100%';
+        con.style.opacity = '0';
+        con.style.height = '20%';
+        content.children[1].children[0].innerHTML = context.children[1].innerHTML;
+      }, 500)
+      setTimeout(function() {
+        con.style.transition = 'all 0.5s linear';
+        con.style.opacity = '1';
+        con.style.height = '100%';
+        content.children[1].children[0].style.opacity = '1';
+        content.children[1].children[0].style.marginLeft = '21px';
+      }, 600)
     }
 
-
-
-
-
-
+    //баннер нижней части сайта
+    divFirst.appendChild(createElem('img', 'banImg', 'src', 'images/content/gifka.gif'));
   })();//первая часть
-
 })();//Контейнер основного контента
+
+
+
+
+//Работа с контейнером FOOTER
+(function footer(){
+  //Основной контейнер
+  let container = document.body.querySelector('.container');
+  container.appendChild(createElem('footer', null));
+  let foot = document.getElementsByTagName('footer');
+  for (var i = 0; i < 4; i++) {
+    foot[0].appendChild(createElem('div', 'footMainBlock'));
+  }
+  foot[0].children[2].className = 'footThree';
+  foot[0].children[3].className = 'footMenu';
+
+
+
+
+
+})()
 
 
 
