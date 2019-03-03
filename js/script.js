@@ -261,7 +261,7 @@ function corusel(slider, quontStrip, wayOne, wayTwo, newsBan, quontPixel){
       where.children[i].appendChild(createElem('span', 'infoSpanBlock'));
       let span = document.getElementsByClassName('infoSpanBlock')[i];
       span.innerHTML = mas[i]['content'];
-      for (var j = 0; j < 4; j++) {
+      for (var j = 0; j < 3; j++) {
         where.children[i].appendChild(createElem('img', 'icon'));
       };
       where.children[i].children[2].setAttribute('src', 'images/banner/icon3.png');
@@ -432,22 +432,60 @@ function imgWork(event) {
 
 
 //Работа с контейнером FOOTER
-(function footer(){
-  //Основной контейнер
-  let container = document.body.querySelector('.container');
-  container.appendChild(createElem('footer', null));
-  let foot = document.getElementsByTagName('footer');
-  for (var i = 0; i < 4; i++) {
-    foot[0].appendChild(createElem('div', 'footMainBlock'));
+(function footer() {
+    //Основной контейнер
+    let container = document.body.querySelector('.container');
+    container.appendChild(createElem('footer', null));
+    let foot = document.getElementsByTagName('footer');
+    for (let i = 0; i < 4; i++) {
+      foot[0].appendChild(createElem('div', 'footMainBlock'));
+    }
+    foot[0].children[2].className = 'footThree';
+    foot[0].children[3].className = 'footMenu';
+    let block = foot[0].children;
+    //Первый блок footer
+    block[0].appendChild(createElem('img', 'banFooter', 'src', 'images/banner/logotip.png'))
+    block[0].appendChild(createElem('span', "spanFootOne")).innerHTML = 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint.'
+    block[0].appendChild(createElem('span', "spanFootOne")).innerHTML = 'Email: &nbsp &nbsp &nbsp Support@mysite.com';
+    let blockSeti = block[0].appendChild(createElem('div', 'socSetiFooter'));
+    blockSeti.addEventListener('mouseover', imgSeti);
+    for (let i = 0; i < 8; i++) {
+      blockSeti.appendChild(createElem('img', 'imageCeti', 'src', `images/banner/set${i}.png`));
+    }
+    blockSeti.children[0].src = 'images/banner/set2.png';
+
+    function imgSeti(event) {
+      if (event.target.tagName == 'IMG') {
+        event.target.style.transform = 'scale(1.5,1.5) rotate(360deg)';
+      }
+      event.target.onmouseout = function() {
+        event.target.style.transform = 'none';
+      }
+    }
+  //Второй блок footer
+  block[1].appendChild(createElem('span', 'nameTwoBlock')).innerHTML = 'Random Posts';
+  let miniBlock = block[1].appendChild(createElem('div', 'blockRandom'));
+  setTimeout(function() {
+    addSmallBlock(miniBlock, null, 'blockFooterRand');
+  }, 800)
+
+  //Третий блок
+  block[2].appendChild(createElem('span', 'nameTwoBlock')).innerHTML = 'Flickr Group';
+  let blockPhoto = block[2].appendChild(createElem('div', 'blockPhotoFoot'));
+
+  for(let i=0; i<9; i++){
+    let bl = blockPhoto.appendChild(createElem('div', 'imgBl'))
+    bl.appendChild(createElem('img', 'imgFoot','src', `images/content/carImg/${i+1}.jpg`));
   }
-  foot[0].children[2].className = 'footThree';
-  foot[0].children[3].className = 'footMenu';
+
+
 
 
 
 
 
 })()
+
 
 
 

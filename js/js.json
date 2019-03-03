@@ -167,4 +167,19 @@
   "id":"enterSmallBlock",
   "photo":"images/content/coruselPosts/3.jpg",
   "content":"Nemo enim ipsam vol quia sit"
+},
+{
+  "id":"blockFooterRand",
+  "photo":"images/content/footer/1.jpg",
+  "content":"In Great Britain school begins at"
+},
+{
+  "id":"blockFooterRand",
+  "photo":"images/content/footer/2.jpg",
+  "content":"There are primary and secondary schools in England. When children are"
+},
+{
+  "id":"blockFooterRand",
+  "photo":"images/content/footer/3.jpg",
+  "content":"In Great Britain school begins at"
 }]

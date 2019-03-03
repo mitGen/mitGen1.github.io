@@ -610,7 +610,7 @@ span.infoSpanBlock{
 footer{
   width:100%;
   min-height: 490px;
-  background-color: #606060;
+  background-color: #2d2d2d;
   margin-top: 36px;
   display: flex;
   flex-wrap: wrap;
@@ -620,14 +620,12 @@ footer{
   min-height:360px;
   margin-top: 46px;
   width:445px;
-  background-color: red;
   display: inline-block;
 }
 .footThree{
   width:345px;
   min-height: 360px;
   margin-top: 46px;
-  background-color: red;
   display: inline-block;
 }
 .footMenu{
@@ -637,5 +635,97 @@ footer{
   margin: 22px auto;
 }
 .footMainBlock:nth-of-type(2){
-  background-color: green;
+  border-left: 1px solid #a7a7a7;
+  border-right: 1px solid #a7a7a7;
+}
+.banFooter{
+  display: block;
+  margin: 3px auto auto 39px;
+}
+.spanFootOne{
+  display: block;
+  width:390px;
+  min-height:40px;
+  margin:21px auto auto 39px;
+  font-family:robotoRegular;
+  font-size:13px;
+  line-height: 25px;
+  color:#a7a7a7;
+}
+.socSetiFooter{
+  width:390px;
+  min-height: 40px;
+  margin:16px auto auto 39px;
+  display:flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.imageCeti{
+  margin-left: 12px;
+  transition:all 0.5s linear;
+}
+.imageCeti:hover{
+  cursor:pointer;
+}
+.nameTwoBlock{
+  display: block;
+  color:white;
+  font-family: robotoRegular;
+  font-size: 20px;
+  margin:10px auto auto 33px;
+}
+.blockRandom{
+  width:380px;
+  min-height:295px;
+  margin: 27px auto auto 35px;
+}
+.blockRandom .newsImage{
+  width:80px;
+  height:80px;
+}
+.blockRandom .infoSpanBlock{
+  margin: -78px auto auto 100px;
+  width: 268px;
+  min-height: 47px;
+}
+.blockRandom .newsEnt{
+  margin-top:28px;
+  border:none;
+  color: #ffffff;
+}
+.blockRandom .newsEnt:hover{
+  color:#00b4ff;
+}
+.blockRandom .icon:nth-of-type(2){
+  margin-left:103px;
+}
+.blockRandom .icon{
+  width:15px;
+  height:15px;
+}
+.footThree .nameTwoBlock{
+  margin-left:23px;
+}
+.blockPhotoFoot{
+  width:280px;
+  height:280px;
+  margin:31px auto auto 23px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+img.imgFoot{
+  width:80px;
+  height:80px;
+  transition:all 0.3s linear;
+}
+.imgFoot:hover{
+  border-radius: 50%;
+  border:2px solid #c2c2c2;
+  transform: rotate(360deg);
+}
+.imgBl{
+  width:80px;
+  height:80px;
 }
